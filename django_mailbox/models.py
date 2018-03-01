@@ -399,7 +399,7 @@ class Mailbox(models.Model):
         else:
             msg.eml.save(
                 '%s.eml' % uuid.uuid4(),
-                ContentFile(message.as_string()),
+                ContentFile(message.as_string().encode('utf-8')),
                 save=False
             )
 
